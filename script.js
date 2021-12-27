@@ -77,12 +77,23 @@ let students = [
         points:'220'
     },
 ]
+let homeWorkQuantity = [];
+students.forEach((item)=>{
+    homeWorkQuantity.push(item.homeWorkDone)
+});
 
 students.forEach(function (item) {
+
+    let max = Math.max.apply(null, homeWorkQuantity)
+    let color = 'white';
+    if (item.homeWorkDone === max) {
+        color = 'green';
+    }
+
     document.getElementById("app").insertAdjacentHTML(
         "beforeend",
         `
-        <tr>
+        <tr style="background: ${color}">
             <td><img src=${item.img} alt=""></td>
             <td>
                 <div>${item.name}</div>
@@ -96,3 +107,7 @@ students.forEach(function (item) {
     `
     );
 });
+
+function checkColor() {
+
+}
