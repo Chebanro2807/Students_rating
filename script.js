@@ -77,11 +77,14 @@ let students = [
         points:'220'
     },
 ]
+let input = document.getElementById('id')
 
-students.filter(person => person.points > 600).forEach((item)=> {
-    document.getElementById("app").insertAdjacentHTML(
-        "beforeend",
-        `
+function studentsFinder() {
+    students.filter(person => person.name.includes(input.value))
+        .forEach((item)=> {
+            document.getElementById("app").insertAdjacentHTML(
+                "beforeend",
+                `
         <tr>
             <td><img src=${item.img} alt=""></td>
             <td>
@@ -94,5 +97,6 @@ students.filter(person => person.points > 600).forEach((item)=> {
             </td>
         </tr>        
     `
-    );
-});
+            );
+        });
+}
