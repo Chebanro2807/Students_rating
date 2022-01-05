@@ -77,23 +77,12 @@ let students = [
         points:'220'
     },
 ]
-let homeWorkQuantity = [];
-students.forEach((item)=>{
-    homeWorkQuantity.push(item.homeWorkDone)
-});
 
-students.forEach(function (item) {
-
-    let max = Math.max.apply(null, homeWorkQuantity)
-    let color = 'white';
-    if (item.homeWorkDone === max) {
-        color = 'green';
-    }
-
+students.filter(person => person.points > 600).forEach((item)=> {
     document.getElementById("app").insertAdjacentHTML(
         "beforeend",
         `
-        <tr style="background: ${color}">
+        <tr>
             <td><img src=${item.img} alt=""></td>
             <td>
                 <div>${item.name}</div>
@@ -107,7 +96,3 @@ students.forEach(function (item) {
     `
     );
 });
-
-function checkColor() {
-
-}
