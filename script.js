@@ -81,8 +81,7 @@ let input = document.getElementById('id')
 
 function studentsFinder() {
     students.filter(person => person.name.includes(input.value))
-        .forEach((item)=> {
-            document.getElementById("app").insertAdjacentHTML(
+        .forEach(item=> document.getElementById("app").insertAdjacentHTML(
                 "beforeend",
                 `
         <tr>
@@ -96,7 +95,5 @@ function studentsFinder() {
                 <div>${item.points}</div>
             </td>
         </tr>        
-    `
-            );
-        });
+    `))
 }
